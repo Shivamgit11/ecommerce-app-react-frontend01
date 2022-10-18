@@ -3,6 +3,7 @@ import "./App.css";
 import Header from "./components/Layout/Header";
 import Store from "./components/Store/Store";
 import Cart from "./components/Cart/Cart";
+import CartProvider from "./store/CartProvider";
 function App() {
   const [cartState, setCartState] = useState(false);
 
@@ -13,13 +14,13 @@ function App() {
   };
 
   return (
-    <div className="App">
+    <CartProvider className="App">
       <Header onClick={onClickCartHandler} />
       <main>
         {cartState && <Cart onClick={onClickCartHandler} />}
         <Store />
       </main>
-    </div>
+    </CartProvider>
   );
 }
 

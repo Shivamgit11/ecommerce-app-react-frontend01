@@ -45,7 +45,7 @@ const Store = () => {
   const card = productsArr.map((product) => {
     return (
       <div className="col col-6">
-        <Card title={product.title} price={product.price} imageUrl={product.imageUrl} />
+        <Card title={product.title} price={product.price} imageUrl={product.imageUrl} key={product.id} id={product.id} />
       </div>
     );
   });
