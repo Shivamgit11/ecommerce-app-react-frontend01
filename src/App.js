@@ -4,6 +4,7 @@ import Header from "./components/Layout/Header";
 import Store from "./components/Store/Store";
 import Cart from "./components/Cart/Cart";
 import CartProvider from "./store/CartProvider";
+import Home from "./components/Home/Home";
 function App() {
   const [cartState, setCartState] = useState(false);
 
@@ -17,8 +18,9 @@ function App() {
     <CartProvider className="App">
       <Header onClick={onClickCartHandler} />
       <main>
-        {cartState && <Cart onClick={onClickCartHandler} />}
-        <Store />
+        {/* {cartState && <Cart onClick={onClickCartHandler} />}
+        <Store /> */}
+        <Home />
       </main>
     </CartProvider>
   );
