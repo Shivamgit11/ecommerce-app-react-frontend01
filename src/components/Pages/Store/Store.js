@@ -1,7 +1,6 @@
 import React from "react";
 import classes from "./Store.module.css";
 import Card from "./Card";
-import Cart from "../Cart/Cart";
 
 const productsArr = [
   {

@@ -1,10 +1,12 @@
 import { useState } from "react";
 import "./App.css";
 import Header from "./components/Layout/Header";
-import Store from "./components/Store/Store";
-import Cart from "./components/Cart/Cart";
 import CartProvider from "./store/CartProvider";
-import Home from "./components/Home/Home";
+import Home from "./components/Pages/Home/Home";
+import { Route, Switch } from "react-router-dom";
+import Store from "./components/Pages/Store/Store";
+import Auth from "./components/Pages/Auth/Auth";
+import Cart from "./components/Cart/Cart";
 function App() {
   const [cartState, setCartState] = useState(false);
 
@@ -13,14 +15,22 @@ function App() {
       return !prevState;
     });
   };
-
   return (
     <CartProvider className="App">
       <Header onClick={onClickCartHandler} />
       <main>
-        {/* {cartState && <Cart onClick={onClickCartHandler} />}
-        <Store /> */}
-        <Home />
+        <Switch>
+          <Route exact path="/">
+            <Home />
+          </Route>
+          <Route path="/store">
+            {cartState && <Cart onClick={onClickCartHandler} />}
+            <Store />
+          </Route>
+          <Route path="/auth">
+            <Auth />
+          </Route>
+        </Switch>
       </main>
     </CartProvider>
   );

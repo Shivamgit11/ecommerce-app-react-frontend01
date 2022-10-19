@@ -49,8 +49,8 @@ const Home = () => {
         TOURS
       </h2>
 
-      <div className="container  d-flex justify-content-center">
-        <div className="row">{Places}</div>
+      <div className="container d-flex justify-content-center">
+        <div className="list-group">{Places}</div>
       </div>
     </React.Fragment>
   );
