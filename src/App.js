@@ -5,8 +5,9 @@ import CartProvider from "./store/CartProvider";
 import Home from "./components/Pages/Home/Home";
 import { Route, Switch } from "react-router-dom";
 import Store from "./components/Pages/Store/Store";
-import Auth from "./components/Pages/Auth/Auth";
+import Auth from "./components/Pages/Auth/AuthForm";
 import Cart from "./components/Cart/Cart";
+import ProductDetails from "./components/Pages/ProductDetails/ProductDetails";
 function App() {
   const [cartState, setCartState] = useState(false);
 
@@ -23,12 +24,16 @@ function App() {
           <Route exact path="/">
             <Home />
           </Route>
-          <Route path="/store">
+          <Route exact path="/store">
             {cartState && <Cart onClick={onClickCartHandler} />}
             <Store />
           </Route>
           <Route path="/auth">
             <Auth />
+          </Route>
+          <Route path="/store/:productId">
+            {cartState && <Cart onClick={onClickCartHandler} />}
+            <ProductDetails />
           </Route>
         </Switch>
       </main>
